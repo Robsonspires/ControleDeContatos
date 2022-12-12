@@ -6,20 +6,18 @@ namespace ControleDeContatos.Models
     [Table("Contatos")]
     public class ContatoModel
     {
-        [Column("Id")]
-        [Display(Name = "Código")] 
+
         public int Id { get; set; }
         
-        [Column("Nome")]
-        [Display(Name = "Nome")] 
+        [Required(ErrorMessage ="Digite o nome do contato.")]
         public string? Nome { get; set; }
 
-        [Column("Email")]
-        [Display(Name = "e-Mail")]
+        [Required(ErrorMessage = "Digite o e-mail do contato.")]
+        [EmailAddress(ErrorMessage ="O e-mail informado não é válido.")]
         public string? Email { get; set;}
 
-        [Column("Celular")]
-        [Display(Name = "Celular")]
+        [Required(ErrorMessage = "Digite o celular do contato.")]
+        [Phone(ErrorMessage ="O Celular informado não é válido.")]
         public string? Celular { get; set;}
 
     }
